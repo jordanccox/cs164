@@ -1,4 +1,3 @@
-
 // P1 Assignment
 // Author: Cox, Jordan
 // Date:   01/22/2019
