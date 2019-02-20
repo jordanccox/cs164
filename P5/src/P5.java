@@ -1,0 +1,114 @@
+import java.util.Scanner;
+
+// P5.java
+// Author: Cox, Jordan
+// Date:   Feb 18, 2019
+// Class:  CS164
+// Email:  jordancc@rams.colostate.edu
+
+public class P5 {
+	// Method to check whether an integer is prime.
+	public static boolean isPrime(int number) {
+
+	    // DO NOT CHANGE THIS CODE!
+	    for(int i = 2; i <= number / 2; i++)
+	        if(number % i == 0)
+	            return false;
+	    return true;
+	}
+
+	// Method to print primes in a specified range
+	public static void printPrimes(int start, int end) {
+	    for (int i = start; i <= end; i++) {
+	    	if (isPrime(i) == true) {
+	    		System.out.print(i + ", ");
+	    	}
+	    }
+	    System.out.println();
+	}
+
+	
+	// Method to remove vowels from a string
+	public static String removeVowels(String input) {
+	    String returnString = "";
+	    for (int i = 0; i < input.length(); i++) { //Why doesn't this work with i <= input.length()???
+	    	switch (input.charAt(i)) {
+	    	case 'a':
+	    	case 'A':
+	    	case 'i':
+	    	case 'I':
+	    	case 'e':
+	    	case 'E':
+	    	case 'o':
+	    	case 'O':
+	    	case 'u':
+	    	case 'U':
+	    		break;
+	    	default:
+	    		returnString += input.charAt(i);
+	    		break;
+	    	}
+	    }
+	    return returnString;
+	}
+
+	// Method to generate and print the value of a number raised to an exponent
+	public static double evaluateExponent(double number, int exponent) {
+	    double result = 1.0;
+	    if (exponent == 0) {
+	    	return result;
+	    }
+	    
+	    int loop = 0;
+	    do {
+	    	result = result * number;
+	    	loop++;
+	    } while (loop < exponent);
+	    
+	    return result;
+	}
+
+	// Method to find and print the minimum/maximum/mean of a set of positive numbers
+	public static void computeStatistics(int sentinel) {
+	    Scanner scnr = new Scanner(System.in);
+	    
+	    int value = 0;
+	    int count = 0;
+	    double mean = 0.0;
+	    int minimum = Integer.MAX_VALUE;
+	    int maximum = Integer.MIN_VALUE;
+	    
+	    while (true) {
+	    	value = scnr.nextInt();
+	    	if (value == sentinel) {
+	    		break;
+	    	}
+	    	else if (value < minimum) {
+	    		minimum = value;
+	    	}
+	    	else if (value > maximum) {
+	    		maximum = value;
+	    	}
+	    	mean += value;
+	    	count++;
+	    }
+	    
+	    mean = mean / count;
+	    
+	    System.out.println("Count: " + count);
+	    System.out.println("Average: " + mean);
+	    System.out.println("Maximum: " + maximum);
+	    System.out.println("Minimum: " + minimum);
+	    
+	    scnr.close();
+	}
+	
+	public static void main(String[] args) {
+		// Preliminary testing
+	    printPrimes(1, 50);
+	    System.out.println(removeVowels("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+	    double result = evaluateExponent(2.0,16);
+	    System.out.println("2.0 to the 16 = " + result);
+	    computeStatistics(-1);
+	}
+}
