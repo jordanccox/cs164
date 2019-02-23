@@ -14,7 +14,7 @@ public class Fibonacci {
 		int fibNum = 0;
 		int sumEven = 2;;
 		
-		System.out.print("0 1 1 ");
+		// System.out.print("0 1 1 ");
 		for (i = 0; i < 31; i++) {
 			/*
 			System.out.print(fibNum + " ");

@@ -49,7 +49,7 @@ public class R7 {
         System.out.println(string0.charAt(3) + ", " + string1.charAt(2) + ", " + string2.charAt(string2.length() - 1));
         System.out.println(string1.length() + string1.charAt(0));
         System.out.println((int)char0 * (int)char1 * (int)char2);
-        System.out.println(string2.equals("Hello World!"));
+        System.out.println(string2 == "Hello World!");
         
         if (Character.isUpperCase(string1.charAt(0))) {
         	System.out.println("Starts with uppercase letter.");
